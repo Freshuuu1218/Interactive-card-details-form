@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    font-family: 'Space Grotesk', sans-serif;
+}
+main{
+    display: flex;
+    height: 100vh;
+}
+.vanish{
+    display: none;
+}
+.left{
+    width: 32.5%;
+    background-image: url('./images/bg-main-desktop.png');
+    display: flex;
+    background-size: cover;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.left .card-front{
+    background-image: url('./images/bg-card-front.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    transform: translateX(25%);
+    width: 447px;
+    height: 245px;
+    margin-bottom: 2em;
+    box-shadow: -10px 30px 40px rgba(0, 0, 0, 0.15);
+    padding: 1em;
+}
+.left .card-front .user-data{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4.5em;
+}
+.left .card-front .user-data #number{
+    font-size: 2.1em;
+    letter-spacing: .05em;
+    margin-bottom: .5em;
+}
+#name,#date,#number{
+    text-transform: uppercase;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: .15em;
+}
+
+.left .card-front .user-data .bottom{
+    display: flex;
+    justify-content: space-between;
+}
+.left .card-back{
+    background-image: url('./images/bg-card-back.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 4em;
+    height: 245px;
+    width: 447px;
+    transform: translateX(50%);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+    letter-spacing: .15em;
+    box-shadow: -10px 30px 40px rgba(0, 0, 0, 0.15);
+}
+.right{
+    width: 67.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.active{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    width: 50%;
+    margin-left: 10%;
+}
+form input{
+    font-family: 'Space Grotesk', sans-serif;
+    padding: .75em;
+    font-size: 1em;
+    border-radius: .5em;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    color: #333;
+}
+form input:focus{
+    outline: 0;
+    border-color: hsl(249, 99%, 64%);
+}
+.formName, .formNumber{
+    margin-bottom: 1.5em;
+}
+
+.formName p,
+.formNumber p,
+.formBottom p{
+    font-size: .8em;
+    margin-bottom: .75em;
+    letter-spacing: .1em;
+}
+.formBottom{
+    display: flex;
+    margin-bottom: 3em;
+}
+.formBottom .date{
+    width: 50%;
+    margin-right: 1em;
+}
+.formBottom .formCvc{
+    width: 50%;
+}
+.date .inputs{
+    display: flex;
+}
+.date .inputs input{
+    width: 50%;
+    margin-right: .5em;
+}
+.formName input,
+.formNumber input,
+.formBottom .formCvc input{
+    width: 100%;
+}
+button{
+    font-family: 'Space Grotesk', sans-serif;
+    width: 100%;
+    color: white;
+    background-color: hsl(278, 68%, 11%);
+    border: 0;
+    border-radius: .5em;
+    padding: 1.25em;
+}
+
+.complete{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35%;
+}
+.complete img{
+    margin-bottom: 1.75em;
+}
+.complete h1{
+    margin-bottom: .5em;
+}
+.complete p{
+    margin-bottom: 2em;
+}
+
+@media (max-width:430px){
+    main{
+        flex-direction: column;
+    }
+    .left{
+        height: 35%;
+        width: 100%;
+        background-image: url('./images/bg-main-mobile.png');
+    }
+    .right{
+        height: 65%;
+        width: 100%;
+    }
+    .right .active{
+        width: 100%;
+        padding: 2em;
+    }
+    .right .active form{
+        margin: 0;
+        margin-top: 2em;
+        width: 100%;
+    }
+    button {
+        font-size: 1.15em;
+        padding: 1em;
+    }
+    .formBottom{
+        margin-bottom: 2em;
+    }
+        .left .card-front {
+            transform: translate(-10%, 125%);
+            width: 70%;
+            height: 60%;
+            border-radius: .5em;
+            padding: 1.5em;
+            z-index: 1;
+        }
+        .left .card-front img{
+            width: 22.5%;
+        }
+        .left .card-front .user-data{
+            margin-top: 2em;
+        }
+        #name,#date,#number{
+            font-size: .5em;
+        }
+        .left .card-front .user-data #number{
+            font-size: 1.1em;
+        }
+
+        .left .card-back {
+            border-radius: .5em;
+            padding: 4em;
+            width: 70%;
+            height: 60%;
+            transform: translate(15%, -52.5%);
+        }
+        #cvc{
+            font-size: .65em;
+            margin-right: -3em;
+        }
+}
