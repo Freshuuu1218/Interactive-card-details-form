@@ -40,11 +40,14 @@
           <div class="formName">
             <p>CARDHOLDER NAME</p>
             <input id="formName" type="text" placeholder="e.g. Jane Appleseed">
+            <span class="error vanish error1">can't be blank</span>
           </div>
 
-          <div class="formNumber">
+          <div class="formNumber" >
             <p>CARD NUMBER</p>
-            <input id="formNumber" type="text" placeholder="e.g. 1234 5678 9123 0000">
+            <input maxlength="19" id="formNumber" type="text" placeholder="e.g. 1234 5678 9123 0000">
+            <span class="error vanish error2">can't be blank</span>
+            <span class="error vanish error3">Only numbers are allowed</span>
           </div>
 
           <div class="formBottom">
@@ -52,14 +55,16 @@
             <div class="date">
               <p>EXP. DATE (MM/YY)</p>
               <div class="inputs">
-                <input id="month" type="text" placeholder="MM">
-                <input id="year" type="text" placeholder="YY">
+                <input id="month" type="text" placeholder="MM" maxlength="2">
+                <input id="year" type="text" placeholder="YY" maxlength="2"> 
               </div>
+              <span class="error vanish error4">can't be blank</span>
             </div>
 
             <div class="formCvc">
               <p>CVC</p>
-              <input id="formCvc" type="text" placeholder="e.g. 123">
+              <input id="formCvc" type="text" placeholder="e.g. 123" maxlength="3">
+              <span class="error vanish error5">can't be blank</span>
             </div>
           </div>
     

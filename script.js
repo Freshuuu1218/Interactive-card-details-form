@@ -7,52 +7,49 @@ const button = document.querySelector('button');
 const inputs = document.querySelectorAll('input');
 
 button.addEventListener('click',()=>{
-    const numberInForm = document.querySelector('#formNumber');
     const nameInForm = document.querySelector('#formName');
+    const nameInFormError = document.querySelector('.error1');
+    const numberInForm = document.querySelector('#formNumber');
+    const numberInFormError = document.querySelector('.error2');
+    const numberInFormError2 = document.querySelector('.error3');
     const month = document.querySelector('#month');
     const year = document.querySelector('#year');
+    const dateError = document.querySelector('.error4')
     const dateInForm = month.value + '/' + year.value  ;
     const cvcInForm = document.querySelector('#formCvc');
+    const cvcInFormError = document.querySelector('.error5');
     let errors = 0;
+    let errorsArr = [nameInFormError, numberInFormError, numberInFormError2, dateError, cvcInFormError]; 
 
-
-    if(numberInForm.value === ""){
-        const inputDiv = document.querySelector('#formNumber').parentElement;
-        let error = document.createElement('span');
-        error.innerHTML = "can't be blank";
-        error.style.color = 'red';
-        inputDiv.appendChild(error);
+        inputs.forEach(input =>{
+            input.style.border = "1px solid #ddd";
+            errorsArr.forEach(error =>{
+                error.classList.add('vanish');
+        })
+    })
+ 
+    if(numberInForm.value === ""){   
+        numberInFormError.classList.remove('vanish');
         numberInForm.style.border = "1px solid hsl(0, 100%, 66%)";
         errors++;
+
     }
     if(numberInForm.value !== ""){
-       let numbers = /^[0-9]*$/.test(numberInForm.value);
+       let numbers = /^[0-9\s]*$/.test(numberInForm.value);
        if(numbers === false){
-          const inputDiv = document.querySelector('#formNumber').parentElement;
-          let error = document.createElement('span');
-          error.innerHTML = "Only numbers are allowed";
-          error.style.color = 'red';
-          inputDiv.appendChild(error);
+          numberInFormError2.classList.remove('vanish');
           numberInForm.style.border = "1px solid hsl(0, 100%, 66%)";
           errors++;
        }
     }
     if(nameInForm.value === ""){
-        const inputDiv = document.querySelector('#formName').parentElement;
-        let error = document.createElement('span');
-        error.innerHTML = "can't be blank";
-        error.style.color = 'red';
-        inputDiv.appendChild(error);
+        nameInFormError.classList.remove('vanish');
         nameInForm.style.border = "1px solid hsl(0, 100%, 66%)";
         errors++;
 
     }
     if(month.value === "" || year.value === ""){
-        const inputDiv = document.querySelector('.date') ;
-        let error = document.createElement('span');
-        error.innerHTML = "can't be blank";
-        error.style.color = 'red';
-        inputDiv.appendChild(error);
+        dateError.classList.remove('vanish');
         errors++;
 
         if(month.value==="" && year.value===""){
@@ -65,17 +62,12 @@ button.addEventListener('click',()=>{
         }
     }
         if(cvcInForm.value === ""){
-        const inputDiv = document.querySelector('#formCvc').parentElement;
-        let error = document.createElement('span');
-        error.innerHTML = "can't be blank";
-        error.style.color = 'red';
-        inputDiv.appendChild(error);
+        cvcInFormError.classList.remove('vanish');
         cvcInForm.style.border = "1px solid hsl(0, 100%, 66%)";
         errors++;
 
     }
 
-    
     if(errors == 0){
         let success = document.querySelector('.complete');
         let form = document.querySelector('.active');
